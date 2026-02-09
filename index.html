@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SafeVault AI — Global Security Protocol</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' fill='none' stroke='url(%23g)' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
@@ -20,6 +25,27 @@
       .glow {
         box-shadow: 0 0 45px rgba(34, 211, 238, 0.35);
       }
+      .emblem-shell {
+        background: linear-gradient(145deg, rgba(34, 211, 238, 0.2), rgba(59, 130, 246, 0.4));
+        box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
+      }
+      .emblem-icon {
+        filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.75));
+      }
+      .pulse-slow {
+        animation: pulse-glow 4.5s ease-in-out infinite;
+      }
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 32px rgba(59, 130, 246, 0.55);
+        }
+      }
     </style>
   </head>
   <body class="text-white antialiased">
@@ -31,15 +57,34 @@
         <div class="bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 text-center text-xs sm:text-sm tracking-wide text-cyan-100 py-2">
           🌍 Serving Globally in 12+ Languages | Secure &amp; Transparent
         </div>
-        <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-semibold">SV</div>
+        <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-4">
+            <div class="emblem-shell pulse-slow h-12 w-12 rounded-2xl flex items-center justify-center">
+              <svg
+                class="emblem-icon h-7 w-7"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="url(#shieldGradient)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="shieldGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#22d3ee" />
+                    <stop offset="100%" stop-color="#3b82f6" />
+                  </linearGradient>
+                </defs>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
             <div>
               <p class="text-lg font-semibold">SafeVault AI</p>
               <p class="text-xs text-slate-300">Global Security Protocol</p>
             </div>
           </div>
-          <div class="flex flex-wrap gap-3 text-sm text-slate-200">
+          <div class="flex flex-wrap items-center justify-start md:justify-end gap-3 text-sm text-slate-200">
             <span class="glass px-4 py-2 rounded-full">AI Security</span>
             <span class="glass px-4 py-2 rounded-full">24/7 Support</span>
             <span class="glass px-4 py-2 rounded-full">Asset Monitoring</span>
