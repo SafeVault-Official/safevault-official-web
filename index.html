@@ -6,6 +6,9 @@
     <title>SafeVault AI — Global Security Protocol</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background: radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 45%),
           radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 40%),
@@ -19,6 +22,13 @@
       }
       .glow {
         box-shadow: 0 0 45px rgba(34, 211, 238, 0.35);
+      }
+      .command-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .command-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(59, 130, 246, 0.35);
       }
     </style>
   </head>
@@ -40,9 +50,9 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-3 text-sm text-slate-200">
-            <span class="glass px-4 py-2 rounded-full">AI Security</span>
-            <span class="glass px-4 py-2 rounded-full">24/7 Support</span>
-            <span class="glass px-4 py-2 rounded-full">Asset Monitoring</span>
+            <a class="glass px-4 py-2 rounded-full" href="#ai-security">AI Security</a>
+            <a class="glass px-4 py-2 rounded-full" href="#support">24/7 Support</a>
+            <a class="glass px-4 py-2 rounded-full" href="#asset-monitoring">Asset Monitoring</a>
           </div>
         </nav>
       </header>
@@ -52,16 +62,16 @@
           <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
             <div class="space-y-6">
               <p class="uppercase tracking-[0.4em] text-xs text-cyan-200">Secure. Transparent. Global.</p>
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+              <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
                 SafeVault AI: The Future of Safety
               </h1>
-              <p class="text-base sm:text-lg text-slate-300 max-w-xl">
+              <p id="hero-description" class="text-base sm:text-lg text-slate-300 max-w-xl">
                 SafeVault AI delivers real-time protection for digital assets with a global-first protocol. Experience premium security audits, multilingual support, and live monitoring designed for a borderless ecosystem.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
                 <a
                   class="glow inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-6 py-3 text-sm font-semibold text-slate-900"
-                  href="https://wa.me/"
+                  href="https://wa.me/your_number"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -69,7 +79,7 @@
                 </a>
                 <a
                   class="inline-flex items-center justify-center rounded-full border border-cyan-300/40 px-6 py-3 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/10"
-                  href="https://t.me/"
+                  href="https://t.me/SafeVaultProtocol"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -78,7 +88,14 @@
               </div>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-slate-400">
                 <div class="glass rounded-2xl px-4 py-3">
-                  <p class="text-base font-semibold text-white">99.99%</p>
+                  <p
+                    class="text-base font-semibold text-white counter"
+                    data-target="99.99"
+                    data-decimals="2"
+                    data-suffix="%"
+                  >
+                    0
+                  </p>
                   <p>Uptime Coverage</p>
                 </div>
                 <div class="glass rounded-2xl px-4 py-3">
@@ -101,21 +118,28 @@
                 Unified monitoring across continents with encrypted telemetry and adaptive AI defense protocols.
               </p>
               <div class="space-y-4">
-                <div class="glass rounded-2xl p-4 flex items-center justify-between">
+                <div class="glass rounded-2xl p-4 flex items-center justify-between command-card">
                   <div>
                     <p class="text-sm text-slate-200">Threat Level</p>
                     <p class="text-lg font-semibold text-cyan-200">Minimal</p>
                   </div>
                   <span class="h-3 w-3 rounded-full bg-cyan-400"></span>
                 </div>
-                <div class="glass rounded-2xl p-4 flex items-center justify-between">
+                <div class="glass rounded-2xl p-4 flex items-center justify-between command-card">
                   <div>
                     <p class="text-sm text-slate-200">Active Nodes</p>
-                    <p class="text-lg font-semibold text-blue-200">+1,284</p>
+                    <p
+                      class="text-lg font-semibold text-blue-200 counter"
+                      data-target="1284"
+                      data-prefix="+"
+                      data-format="comma"
+                    >
+                      0
+                    </p>
                   </div>
                   <span class="text-xs text-cyan-200">Live Sync</span>
                 </div>
-                <div class="glass rounded-2xl p-4">
+                <div class="glass rounded-2xl p-4 command-card">
                   <p class="text-sm text-slate-200">Secure Channels</p>
                   <div class="mt-3 flex gap-2">
                     <span class="rounded-full border border-cyan-400/40 px-3 py-1 text-xs text-cyan-200">Quantum Shield</span>
@@ -139,10 +163,18 @@
                 </p>
               </div>
               <div class="flex flex-wrap gap-3">
-                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100">English</button>
-                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100">Turkish</button>
-                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100">Chinese</button>
-                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100">Spanish</button>
+                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100 language-toggle" data-language="english">
+                  English
+                </button>
+                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100 language-toggle" data-language="turkish">
+                  Turkish
+                </button>
+                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100 language-toggle" data-language="chinese">
+                  Chinese
+                </button>
+                <button class="glass rounded-full px-4 py-2 text-sm text-cyan-100 language-toggle" data-language="spanish">
+                  Spanish
+                </button>
               </div>
             </div>
           </div>
@@ -154,7 +186,7 @@
             <h2 class="text-3xl sm:text-4xl font-semibold mt-3">Security layers crafted for the SafeVault ecosystem.</h2>
           </div>
           <div class="grid gap-6 md:grid-cols-3">
-            <div class="glass rounded-3xl p-6 space-y-4">
+            <div id="ai-security" class="glass rounded-3xl p-6 space-y-4">
               <h3 class="text-xl font-semibold">AI Security Audit</h3>
               <p class="text-sm text-slate-300">Real-time scanning for protocol vulnerabilities.</p>
               <p class="text-2xl font-semibold text-cyan-200">$0 <span class="text-sm text-slate-400">/ Free for Holders</span></p>
@@ -164,7 +196,7 @@
                 <li>• Compliance-ready reports</li>
               </ul>
             </div>
-            <div class="glass rounded-3xl p-6 space-y-4 border border-cyan-400/40">
+            <div id="support" class="glass rounded-3xl p-6 space-y-4 border border-cyan-400/40">
               <h3 class="text-xl font-semibold">Multi-Lang 24/7 Support</h3>
               <p class="text-sm text-slate-300">Technical assistance in various languages.</p>
               <p class="text-2xl font-semibold text-cyan-200">Included <span class="text-sm text-slate-400">in Ecosystem</span></p>
@@ -174,7 +206,7 @@
                 <li>• Priority onboarding guidance</li>
               </ul>
             </div>
-            <div class="glass rounded-3xl p-6 space-y-4">
+            <div id="asset-monitoring" class="glass rounded-3xl p-6 space-y-4">
               <h3 class="text-xl font-semibold">Asset Monitoring</h3>
               <p class="text-sm text-slate-300">Global monitoring and alert system for digital vaults.</p>
               <p class="text-2xl font-semibold text-cyan-200">Premium <span class="text-sm text-slate-400">Access</span></p>
@@ -195,5 +227,79 @@
         </div>
       </footer>
     </div>
+    <script>
+      const languageContent = {
+        english: {
+          heading: "SafeVault AI: The Future of Safety",
+          description:
+            "SafeVault AI delivers real-time protection for digital assets with a global-first protocol. Experience premium security audits, multilingual support, and live monitoring designed for a borderless ecosystem.",
+        },
+        turkish: {
+          heading: "SafeVault AI: Güvenliğin Geleceği",
+          description:
+            "SafeVault AI, dijital varlıklar için küresel öncelikli bir protokolle gerçek zamanlı koruma sunar. Sınır tanımayan ekosistem için premium güvenlik denetimleri, çok dilli destek ve canlı izlemeyi deneyimleyin.",
+        },
+        chinese: {
+          heading: "SafeVault AI：安全的未来",
+          description:
+            "SafeVault AI 通过全球优先协议为数字资产提供实时保护。体验高级安全审计、多语言支持与实时监控，覆盖无边界生态。",
+        },
+        spanish: {
+          heading: "SafeVault AI: El futuro de la seguridad",
+          description:
+            "SafeVault AI ofrece protección en tiempo real para activos digitales con un protocolo global. Disfruta de auditorías de seguridad premium, soporte multilingüe y monitoreo en vivo para un ecosistema sin fronteras.",
+        },
+      };
+
+      const heroHeading = document.getElementById("hero-heading");
+      const heroDescription = document.getElementById("hero-description");
+      const languageButtons = document.querySelectorAll(".language-toggle");
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selection = button.dataset.language;
+          const content = languageContent[selection];
+          if (!content) return;
+          heroHeading.textContent = content.heading;
+          heroDescription.textContent = content.description;
+        });
+      });
+
+      const formatValue = (value, { prefix, suffix, format, decimals }) => {
+        let formatted = value.toFixed(decimals);
+        if (format === "comma") {
+          formatted = Number(formatted).toLocaleString("en-US", {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+          });
+        }
+        return `${prefix}${formatted}${suffix}`;
+      };
+
+      const animateCounter = (element) => {
+        const target = Number(element.dataset.target || 0);
+        const decimals = Number(element.dataset.decimals || 0);
+        const prefix = element.dataset.prefix || "";
+        const suffix = element.dataset.suffix || "";
+        const format = element.dataset.format || "";
+        const duration = 1400;
+        const startTime = performance.now();
+
+        const update = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = target * eased;
+          element.textContent = formatValue(value, { prefix, suffix, format, decimals });
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        };
+
+        requestAnimationFrame(update);
+      };
+
+      document.querySelectorAll(".counter").forEach((counter) => animateCounter(counter));
+    </script>
   </body>
 </html>
